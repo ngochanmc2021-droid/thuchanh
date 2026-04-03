@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 02 - Form Đăng ký</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><ul class="main-menu">...</ul></header> <main>
+        <h2>Đăng ký thành viên</h2>
+        <form id="registerForm" onsubmit="validateForm(event)">
+            <input type="text" id="username" placeholder="Họ và tên" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Mật khẩu" required>
+            <label><input type="checkbox" id="agree"> Đồng ý điều khoản</label>
+            <button type="submit">Đăng ký</button>
+        </form>
+
+        <div class="logic-expl">
+            <strong>Giải thích logic:</strong><br>
+            - <strong>Xử lý Submit:</strong> Dùng `event.preventDefault()` để ngăn trình duyệt reload, cho phép JS xử lý validation và lưu trữ mượt mà.<br>
+            - <strong>Bảo mật:</strong> Kiểm tra Regex phía Client để lọc dữ liệu rác. Dữ liệu lưu vào LocalStorage dưới dạng chuỗi JSON. Lưu ý: Trong thực tế không nên lưu mật khẩu dạng text gốc (plaintext) mà cần băm (hash).
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

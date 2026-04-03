@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần 1: Lý thuyết - Đề thi Kết thúc HP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Style bổ sung cho bảng và code để trình bày lý thuyết đẹp hơn */
+        .theory-section { margin-bottom: 40px; line-height: 1.8; }
+        .theory-section h3 { color: #2980b9; border-bottom: 2px solid #2980b9; padding-bottom: 5px; margin-top: 30px; }
+        .theory-section ul { margin-left: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; }
+        table, th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; color: #333; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 4px; color: #e74c3c; font-family: 'Courier New', Courier, monospace; }
+        pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px; }
+        .highlight { font-weight: bold; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="lythuyet.html">Câu hỏi Lý thuyết</a></li>
+                <li><a href="baitap18.html">Bài tập 18</a></li>
+                <li><a href="baitap19.html">Bài tập 19</a></li>
+                <li><a href="diemdanh.html">Điểm danh & Deploy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>PHẦN 1: LÝ THUYẾT (40 ĐIỂM)</h1>
+
+        <section class="theory-section">
+            <h3>1. Phân biệt position: absolute và position: relative</h3>
+            <p><span class="highlight">Sự khác biệt cơ bản:</span></p>
+            <ul>
+                <li><span class="highlight">position: relative (Tương đối):</span> Phần tử được định vị dựa trên vị trí ban đầu của nó trong luồng văn bản. Khi dịch chuyển bằng top, left... nó vẫn để lại "khoảng trống" tại vị trí cũ, không làm ảnh hưởng đến các phần tử xung quanh.</li>
+                <li><span class="highlight">position: absolute (Tuyệt đối):</span> Phần tử bị tách hoàn toàn khỏi luồng văn bản. Nó định vị dựa trên phần tử cha gần nhất có <code>position</code> khác <code>static</code>. Nếu không có, nó lấy viewport làm chuẩn.</li>
+            </ul>
+            <p><span class="highlight">Ví dụ Responsive:</span> Tạo "Badge" nằm góc trên bên phải thẻ Card bằng cách đặt Card là <code>relative</code> và Badge là <code>absolute</code> với <code>top: 0; right: 0;</code>.</p>
+        </section>
+
+        <section class="theory-section">
+            <h3>2. Quy trình đăng ký Domain, Hosting và DNS</h3>
+            <p><span class="highlight">Quy trình cơ bản:</span></p>
+            <ol>
+                <li><span class="highlight">Đăng ký Domain:</span> Chọn tên miền qua nhà cung cấp (Namecheap, GoDaddy).</li>
+                <li><span class="highlight">Thuê Hosting:</span> Thuê không gian lưu trữ (Hostinger, Bluehost).</li>
+                <li><span class="highlight">Trỏ DNS:</span> Cấu hình bản ghi (Record A hoặc CNAME) để nối Domain với IP Hosting.</li>
+            </ol>
+            <p><span class="highlight">Vai trò của DNS:</span> Như một "danh bạ điện thoại", biên dịch tên miền thành địa chỉ IP số để trình duyệt tìm đúng server.</p>
+            <p><span class="highlight">Công cụ Deploy:</span> GitHub Pages (miễn phí cho web tĩnh) hoặc Netlify (hỗ trợ kéo thả, SSL tự động).</p>
+        </section>
+
+        <section class="theory-section">
+            <h3>3. So sánh var, let, và const trong JavaScript</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Đặc điểm</th>
+                        <th>var</th>
+                        <th>let</th>
+                        <th>const</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Scope</td>
+                        <td>Function scope</td>
+                        <td>Block scope ({})</td>
+                        <td>Block scope ({})</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Hoisting</td>
+                        <td>Có (undefined)</td>
+                        <td>Có (Temporal Dead Zone)</td>
+                        <td>Có (Temporal Dead Zone)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Re-assign</td>
+                        <td>Có thể gán lại</td>
+                        <td>Có thể gán lại</td>
+                        <td>KHÔNG THỂ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><span class="highlight">Debug bằng Chrome DevTools:</span> F12 -> tab Sources -> Đặt Breakpoint -> Xem tab Scope để kiểm tra giá trị biến thực tế.</p>
+        </section>
+
+        <section class="theory-section">
+            <h3>4. Khái niệm Event Delegation</h3>
+            <p><span class="highlight">Định nghĩa:</span> Kỹ thuật gán một listener duy nhất cho phần tử cha thay vì từng con, dựa trên cơ chế <span class="highlight">Event Bubbling</span> (sự kiện nổi bọt).</p>
+            <p><span class="highlight">Ví dụ với Danh sách động (To-do list):</span></p>
+<pre>
+document.querySelector('#myList').addEventListener('click', function(e) {
+    if(e.target.tagName === 'LI') {
+        console.log('Bạn đã click vào: ' + e.target.innerText);
+    }
+});
+</pre>
+            <p><span class="highlight">Lợi ích:</span> Giảm bộ nhớ, không cần gán lại sự kiện khi thêm phần tử mới bằng JS, quản lý code dễ dàng hơn.</p>
+        </section>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="back-btn" style="text-decoration: none; background: #3498db; color: white; padding: 10px 20px; border-radius: 5px;">Quay lại Trang chủ</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 03 - Countdown Timer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><ul class="main-menu">...</ul></header>
+    <main>
+        <h2>Đồng hồ đếm ngược (10:00)</h2>
+        <div id="timer">10:00</div>
+        
+        <div class="logic-expl">
+            <strong>Giải thích logic:</strong><br>
+            - <strong>Memory Leak:</strong> Sử dụng `clearInterval(timerInterval)` khi thời gian chạm mốc 0 để giải phóng tài nguyên hệ thống.<br>
+            - <strong>Tích hợp Server:</strong> Nếu deploy thực tế, nên lấy timestamp từ server khi trang vừa load để tránh việc người dùng gian lận bằng cách chỉnh đồng hồ máy tính hoặc refresh trang.
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+    <script>startTimer();</script>
+</body>
+</html>

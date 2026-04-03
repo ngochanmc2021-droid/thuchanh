@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 01 - Danh sách sản phẩm</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <ul class="main-menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="baitap01.html">Bài 1</a></li>
+            <li><a href="baitap02.html">Bài 2</a></li>
+            <li><a href="baitap03.html">Bài 3</a></li>
+            <li><a href="lythuyet.html">Lý thuyết</a></li>
+            <li><a href="diemdanh.html">Điểm danh</a></li>
+        </ul>
+    </header>
+    <main>
+        <h2>Danh sách sản phẩm</h2>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Nhập tên sản phẩm..." oninput="searchProduct()">
+        </div>
+        <div id="product-list"></div>
+
+        <div class="logic-expl">
+            <strong>Giải thích logic:</strong><br>
+            - <strong>Injection:</strong> Sử dụng `.textContent` hoặc template literals một cách kiểm soát để render text, tránh thực thi mã script lạ từ input.<br>
+            - <strong>Tối ưu:</strong> Sử dụng hàm `filter()` kết hợp `toLowerCase()` và `trim()` để chuẩn hóa dữ liệu đầu vào, giúp tìm kiếm chính xác và không phân biệt hoa thường.
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+    <script>displayProducts(products);</script>
+</body>
+</html>
