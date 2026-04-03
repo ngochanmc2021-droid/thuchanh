@@ -1,0 +1,13 @@
+// Đoạn mã Validation tiêu biểu
+const validateEmail = (email) => /^\S+@\S+\.\S+$/.test(email);
+const validatePass = (pass) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(pass);
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+    if(validateEmail(email.value) && validatePass(pass.value) && checkbox.checked) {
+        localStorage.setItem('user', JSON.stringify({name: name.value, email: email.value}));
+        alert("Đăng ký thành công!");
+    } else {
+        alert("Vui lòng kiểm tra lại thông tin!");
+    }
+}
